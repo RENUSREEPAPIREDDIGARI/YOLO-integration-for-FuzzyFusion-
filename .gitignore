@@ -5,7 +5,7 @@ venv/
 .env
 
 # Datasets and annotations are kept local.
-data/colorectal/
+data/colorectal-cls/
 data/**/*.jpg
 data/**/*.jpeg
 data/**/*.png
@@ -14,7 +14,6 @@ data/**/*.tif
 data/**/*.tiff
 data/**/*.webp
 data/**/*.txt
-!requirements.txt
 
 # Training outputs and downloaded model weights.
 runs/

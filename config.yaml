@@ -1,8 +1,12 @@
-model: yolo11n.pt
-data: data/colorectal.yaml
+model: yolo11n-cls.pt
+source: ../CI Project/kvasir-dataset
+data: data/colorectal-cls
+seed: 42
+train_ratio: 0.7
+val_ratio: 0.15
 epochs: 100
-imgsz: 640
+imgsz: 224
 batch: 16
 device: auto
-project: runs/detect
+project: runs/classify
 name: colorectal-baseline

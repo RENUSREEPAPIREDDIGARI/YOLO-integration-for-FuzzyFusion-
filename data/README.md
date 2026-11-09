@@ -1,28 +1,31 @@
-# Dataset setup
+# Classification dataset
 
-Place a detection dataset in the following YOLO layout:
+The fuzzy-fusion project uses class-folder labels, which are suitable for
+YOLO **image classification**. They do not contain bounding boxes and cannot
+train an object detector.
 
-```text
-data/colorectal/
-  images/
-    train/
-    val/
-    test/
-  labels/
-    train/
-    val/
-    test/
-```
-
-For each image, add a same-basename `.txt` file in the corresponding labels
-folder. Each line is a bounding box in normalized YOLO format:
+The training script reads the source dataset without changing it, then copies
+images into a deterministic train/validation/test split under the ignored
+`data/colorectal-cls/` directory:
 
 ```text
-class_id x_center y_center width height
+data/colorectal-cls/
+  train/
+    class-a/
+    class-b/
+  val/
+    class-a/
+    class-b/
+  test/
+    class-a/
+    class-b/
 ```
 
-Coordinates must be between 0 and 1. Update `colorectal.yaml` if your class
-names or dataset directory differ. For example, `0 0.52 0.48 0.20 0.30`
-marks one box for class `0`.
+Provide the source folder with `--source`. It must contain one folder per
+class, with supported image files inside each class folder. The default source
+in `config.yaml` points to the sibling `CI Project/kvasir-dataset` folder; use
+`--source` if yours is elsewhere.
 
-Do not commit private, identifiable, or unlicensed images or annotations.
+The split is reproducible with the configured seed and ratios. Re-running
+training regenerates only the marked `data/colorectal-cls/` prepared copy; it
+does not modify the source images.

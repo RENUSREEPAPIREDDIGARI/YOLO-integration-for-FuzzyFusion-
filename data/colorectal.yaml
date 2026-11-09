@@ -1,7 +1,0 @@
-# YOLO detection dataset. Dataset folders and annotation files stay local.
-train: colorectal/images/train
-val: colorectal/images/val
-test: colorectal/images/test
-
-names:
-  0: polyp

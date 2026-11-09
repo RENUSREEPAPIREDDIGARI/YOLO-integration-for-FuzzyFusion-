@@ -14,9 +14,9 @@ def main() -> None:
     parser.add_argument(
         "--weights",
         type=Path,
-        default=ROOT / "runs" / "detect" / "colorectal-baseline" / "weights" / "best.pt",
+        default=ROOT / "runs" / "classify" / "colorectal-baseline" / "weights" / "best.pt",
     )
-    parser.add_argument("--imgsz", type=int, default=640)
+    parser.add_argument("--imgsz", type=int, default=224)
     parser.add_argument("--conf", type=float, default=0.25)
     args = parser.parse_args()
 
@@ -34,7 +34,7 @@ def main() -> None:
         source=str(source),
         imgsz=args.imgsz,
         conf=args.conf,
-        project=str(ROOT / "runs" / "predict"),
+        project=str(ROOT / "runs" / "classify-predict"),
         save=True,
     )
 

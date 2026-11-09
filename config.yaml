@@ -1,0 +1,8 @@
+model: yolo11n.pt
+data: data/colorectal.yaml
+epochs: 100
+imgsz: 640
+batch: 16
+device: auto
+project: runs/detect
+name: colorectal-baseline

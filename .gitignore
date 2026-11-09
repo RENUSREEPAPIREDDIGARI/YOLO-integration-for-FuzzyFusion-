@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Datasets and annotations are kept local.
+data/colorectal/
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.bmp
+data/**/*.tif
+data/**/*.tiff
+data/**/*.webp
+data/**/*.txt
+!requirements.txt
+
+# Training outputs and downloaded model weights.
+runs/
+weights/
+*.pt
+*.onnx
+*.engine
+
+.DS_Store
+Thumbs.db
